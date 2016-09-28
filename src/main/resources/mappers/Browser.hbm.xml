@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.leo.test.hibernate.session.model.Browser" table="browser" catalog="test">
+        <id name="id" type="java.lang.Integer">
+            <column name="id"/>
+            <generator class="identity"/>
+        </id>
+        <property name="browser" type="string">
+            <column name="browser" length="65" not-null="true" unique="true"/>
+        </property>
+        <property name="cssGrade" type="string">
+            <column name="css_grade" length="65" not-null="true"/>
+        </property>
+        <property name="engine" type="string">
+            <column name="engine" length="65" not-null="true"/>
+        </property>
+        <property name="engineVersion" type="string">
+            <column name="engine_version" length="65" not-null="true"/>
+        </property>
+        <property name="platform" type="string">
+            <column name="platform" length="65" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

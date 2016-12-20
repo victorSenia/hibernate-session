@@ -6,6 +6,8 @@ import com.leo.test.hibernate.session.util.BrowserMapper;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 
 /**
  * Created by Senchenko Viktor on 26.09.2016.
@@ -20,6 +22,13 @@ public class HomeController {
     @Produces(MediaType.APPLICATION_JSON)
     public String list() {
         return BrowserMapper.toString(REPOSITORY.list());
+    }
+
+    @GET
+    @Path("/browser")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getByBrowser(@QueryParam("browser") String browser) throws UnsupportedEncodingException {
+        return BrowserMapper.toString(REPOSITORY.getByBrowser(URLDecoder.decode(browser, "UTF-8")));
     }
 
     @GET

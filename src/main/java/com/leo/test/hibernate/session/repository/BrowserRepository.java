@@ -9,4 +9,8 @@ public class BrowserRepository extends Repository<Browser> {
     public BrowserRepository() {
         super(Browser.class);
     }
+
+    public Iterable<Browser> getByBrowser(String browser) {
+        return custom((criteriaBuilder, query, root) -> query.where(criteriaBuilder.equal(root.get("browser"), browser)));
+    }
 }
